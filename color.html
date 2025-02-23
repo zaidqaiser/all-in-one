@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Color Palette Generator by ZAID</title>
+  <link rel="stylesheet" href="color.css" />
+</head>
+<body>
+  <!-- Ripple Effect Container -->
+  <div id="ripple-container"></div>
+  
+  <!-- Glassy Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">All In One Tools</a></div>
+    </nav>
+  </header>
+
+  <!-- Main Content (Glassy Container) -->
+  <main class="main-content">
+    <div class="container">
+      <h2>Color Palettes</h2>
+      <div class="options">
+        <h3>Category:</h3>
+        <div class="category-options">
+          <div class="category-option active" data-value="random">Random</div>
+          <div class="category-option" data-value="bright">Bright</div>
+          <div class="category-option" data-value="muted">Muted</div>
+          <div class="category-option" data-value="aesthetic">Aesthetic</div>
+        </div>
+      </div>
+      <button id="generateBtn" class="button-action">Generate Palette</button>
+      <div id="palette" class="palette-grid"></div>
+      <button id="downloadPaletteBtn" class="button-action">Download Palette PNG</button>
+    </div>
+  </main>
+
+  <!-- Include html2canvas for capturing the palette -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="color.js"></script>
+</body>
+</html>

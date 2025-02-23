@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black & White Converter by ZAIDWEBDEV</title>
+  <link rel="stylesheet" href="bw.css">
+</head>
+<body>
+  <!-- Ripple Effect Container -->
+  <div id="ripple-container"></div>
+  
+  <!-- Glassy Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">All In One Tools</a></div>
+    </nav>
+  </header>
+  
+  <!-- Main Content (Glassy Container) -->
+  <main class="main-content">
+    <div class="container">
+      <h2>Black &amp; White Converter</h2>
+      
+      <!-- Drop zone (sample area) shown at first load -->
+      <div id="dropzone" class="dropzone">
+        <img 
+          src="https://miro.medium.com/v2/da:true/resize:fit:600/1*N0fGWEYzGyTyN3SN095qOw.gif" 
+          alt="Sample" 
+          class="dropzone-sample"
+        >
+        <p>Drop file here or click to upload</p>
+        <label for="imageInput" class="button-action file-button">Choose File</label>
+        <input type="file" id="imageInput" accept="image/*">
+      </div>
+
+      <!-- Preview container for the original image (hidden by default) -->
+      <div id="previewContainer" class="preview-container" style="display: none;">
+        <h3>Preview</h3>
+        <img id="previewImage" src="" alt="Preview Image">
+      </div>
+
+      <!-- Convert button, hidden by default -->
+      <button 
+        id="convertBtn" 
+        class="button-action" 
+        style="display: none;"
+      >
+        Convert to B&amp;W
+      </button>
+
+      <!-- Comparison container (hidden by default) -->
+      <div 
+        class="compare-container" 
+        id="compareContainer" 
+        style="display: none;"
+      >
+        <!-- Original Image -->
+        <img 
+          src="" 
+          alt="Original" 
+          id="originalImage" 
+          class="compare-img"
+        >
+        
+        <!-- Converted Image (B&W), partially clipped -->
+        <img 
+          src="" 
+          alt="Converted" 
+          id="resultImage" 
+          class="compare-img compare-img-right"
+        >
+        
+        <!-- Circular handle with arrows -->
+        <div class="compare-handle" id="compareHandle">
+          <div class="compare-handle-icon">&lt; &gt;</div>
+        </div>
+      </div>
+      
+      <!-- Download button, hidden by default -->
+      <button 
+        id="downloadBtn" 
+        class="button-action" 
+        style="display: none;"
+      >
+        Download Converted Image
+      </button>
+
+      <!-- Back button, hidden by default -->
+      <button 
+        id="backBtn" 
+        class="button-action" 
+        style="display: none; margin-top: 10px;"
+      >
+        Back
+      </button>
+    </div>
+  </main>
+  
+  <script src="bw.js"></script>
+</body>
+</html>

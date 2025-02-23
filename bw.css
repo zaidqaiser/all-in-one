@@ -1,0 +1,300 @@
+/* ===== Base Reset & Layout ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a0d8ef, #f5f7fa);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  /* Allow the page to grow in height if needed */
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: auto; /* or visible */
+  color: #333;
+}
+a:link{
+  text-decoration: none;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Background Overlays ===== */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'><text x='50%' y='50%' text-anchor='middle' fill='%23333' font-family='Arial' font-size='36' font-weight='bold' transform='rotate(-45,150,150)'>zaidwebdev</text></svg>") repeat;
+  background-size: 300px 300px;
+  opacity: 0.2;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='200' preserveAspectRatio='none'><path d='M0,100 C300,0 900,200 1200,100 L1200,200 L0,200 Z' fill='%23ffffff'/></svg>") repeat-x;
+  background-size: cover;
+  opacity: 0.1;
+  animation: wave 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes wave {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+/* ===== Glassy Header Styles ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(31,38,135,0.2);
+  z-index: 3;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 5%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ===== Main Content (Glassy Container) ===== */
+.main-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px; /* To avoid header overlap */
+  display: block;    /* allow vertical expansion */
+  padding-bottom: 40px;
+}
+
+.container {
+  background: rgba(255,255,255,0.6);
+  padding: 25px 15px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  max-width: 600px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+/* Title */
+h2 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* ===== Drop Zone / Sample Area ===== */
+.dropzone {
+  border: 2px dashed #999;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropzone-sample {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.dropzone p {
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Highlight the dropzone when a file is dragged over */
+.dropzone.dragover {
+  border-color: #2c3e50;
+  background-color: rgba(44,62,80,0.1);
+}
+
+/* ===== Preview Container ===== */
+.preview-container {
+  width: 400px;          /* fixed width */
+  height: 300px;         /* fixed height */
+  margin: 0 auto 20px;   /* center horizontally, add bottom margin */
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  position: relative;    /* for absolutely positioned image */
+  overflow: hidden;      /* hide any overflow beyond the fixed size */
+  text-align: center;
+}
+
+.preview-container h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #444;
+}
+
+#previewImage {
+  position: absolute; /* fill container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* scale down to fit */
+}
+
+/* ===== Custom File Input Button ===== */
+input[type="file"] {
+  display: none;
+}
+
+.file-button {
+  cursor: pointer;
+  background: #2c3e50;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.file-button:hover {
+  background: #34495e;
+}
+
+/* ===== Professional Button Styles ===== */
+.button-action {
+  cursor: pointer;
+  background: #2c3e50;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.button-action:hover {
+  background: #34495e;
+}
+
+/* ===== Comparison Slider Styles ===== */
+.compare-container {
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(31,38,135,0.15);
+  height: 400px; /* fixed height */
+}
+
+.compare-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keep aspect ratio, shrink if needed */
+}
+
+.compare-img-right {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  transition: clip-path 0.1s linear;
+}
+
+.compare-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.compare-handle:hover {
+  background: #eee;
+}
+
+.compare-handle-icon {
+  font-size: 0.8rem;
+  color: #333;
+  pointer-events: none;
+}
+
+/* ===== Ripple Effect Styles ===== */
+#ripple-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ripple {
+  position: absolute;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 3s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+
+  .compare-container {
+    height: 300px; /* smaller for mobile screens */
+  }
+}

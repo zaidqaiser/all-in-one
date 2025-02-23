@@ -1,0 +1,279 @@
+/* ===== Base Reset & Layout ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Animated water-like gradient background */
+    background: linear-gradient(135deg, #a0d8ef, #f5f7fa);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+  }
+  a:link{
+    text-decoration: none;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* ===== Background Overlays ===== */
+  /* Diagonally repeated watermark */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: url("data:image/svg+xml;utf8,<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'><text x='50%' y='50%' text-anchor='middle' fill='%23333' font-family='Arial' font-size='36' font-weight='bold' transform='rotate(-45,150,150)'>zaidwebdev</text></svg>") repeat;
+    background-size: 300px 300px;
+    opacity: 0.2;
+    z-index: -2;
+  }
+  
+  /* Subtle animated wave overlay */
+  body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='200' preserveAspectRatio='none'><path d='M0,100 C300,0 900,200 1200,100 L1200,200 L0,200 Z' fill='%23ffffff'/></svg>") repeat-x;
+    background-size: cover;
+    opacity: 0.1;
+    animation: wave 10s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+  }
+  
+  /* ===== Glassy Header Styles ===== */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(31, 38, 135, 0.2);
+    z-index: 3;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 5%;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  /* ===== Main Content (Glassy Container) ===== */
+  .main-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px; /* to avoid header overlap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    max-width: 600px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* Title */
+  h2 {
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  /* ===== Options Section ===== */
+  .options {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .options h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .category-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .category-option {
+    flex: 1;
+    background: rgba(74, 144, 226, 0.2);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  .category-option.active {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #357ABD;
+  }
+  
+  .category-option:hover {
+    background: #4a90e2;
+    color: #fff;
+  }
+  
+  /* ===== Button ===== */
+  .button-action {
+    background: #4a90e2;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  .button-action:hover {
+    background: #357ABD;
+  }
+  
+  /* ===== Palette Grid Styles ===== */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .palette-item {
+    padding: 16px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(31, 38, 135, 0.15);
+    transition: transform 0.2s;
+    position: relative;
+    min-height: 180px;  /* Adjusted height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  .palette-item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Lock Icon Styling */
+  .lock-icon {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+  }
+  
+  .lock-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .lock-icon.unlocked svg path {
+    fill: rgba(255,255,255,0.8);
+  }
+  
+  .lock-icon.locked svg path {
+    fill: #FFD700;
+  }
+  
+  /* ===== Ripple Effect Styles ===== */
+  #ripple-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .ripple {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 3s linear;
+    pointer-events: none;
+  }
+  
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* ===== Responsive Styling ===== */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .container {
+      padding: 20px;
+    }
+    
+    .category-options {
+      flex-direction: column;
+    }
+    
+    .category-option {
+      margin: 5px 0;
+    }
+  }
+  
