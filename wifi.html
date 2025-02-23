@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WiFi QR Code Generator by ZAIDWEBDEV</title>
+  <link rel="stylesheet" href="wifi-styles.css" />
+</head>
+<body>
+  <!-- Glassy Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">ZAIDWEBDEV</a></div>
+    </nav>
+  </header>
+
+  <!-- Main Content (Glassy) -->
+  <main class="main-content">
+    <div class="container">
+      <!-- QR Code Preview on the Left -->
+      <div class="preview">
+        <h3>Live Preview</h3>
+        <div id="qrcode"></div>
+        <div class="button-group">
+          <a id="downloadBtn" style="display: none;">Download</a>
+          <button id="copyBtn" style="display: none;" onclick="copyQRCode()">Copy as an Image</button>
+        </div>
+      </div>
+
+      <!-- Input Form on the Right -->
+      <div class="form-container">
+        <h2>WiFi QR Code Generator</h2>
+        <label for="ssid">WiFi Name (SSID):</label>
+        <input type="text" id="ssid" placeholder="Malik Wifi" required />
+
+        <label for="password">WiFi Password:</label>
+        <input type="text" id="password" placeholder="zaid1122" required />
+      </div>
+    </div>
+  </main>
+
+  <!-- Using CDN for qrcode.min.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="wifi-script.js"></script>
+</body>
+</html>

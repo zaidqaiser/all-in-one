@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YT Thumbnail-by ZAIDWEBDEV</title>
+  <link rel="stylesheet" href="thumb-styles.css" />
+</head>
+<body>
+  <!-- Ripple Effect Container -->
+  <div id="ripple-container"></div>
+  
+  <!-- Glassy Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">ZAIDWEBDEV</a></div>
+    </nav>
+  </header>
+
+  <!-- Main Content (Glassy) -->
+  <main class="main-content">
+    <div class="container">
+      <h2>YouTube Thumbnail Downloader</h2>
+      <label for="yt-url">YouTube Video URL:</label>
+      <input type="text" id="yt-url" placeholder="Enter YouTube video URL" required />
+      <button id="getThumbBtn" class="button-action" onclick="downloadThumbnail()">Get Thumbnail</button>
+      <div id="result" class="result"></div>
+    </div>
+  </main>
+
+  <script src="thumb-script.js"></script>
+</body>
+</html>
